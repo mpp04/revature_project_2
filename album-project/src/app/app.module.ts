@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlbumBannerComponent } from './album-banner/album-banner.component';
+import { AlbumListComponent } from './album-list/album-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlbumBannerComponent,
+    AlbumListComponent
   ],
   imports: [
     BrowserModule,
