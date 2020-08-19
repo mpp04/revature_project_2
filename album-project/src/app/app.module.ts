@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlbumBannerComponent } from './album-banner/album-banner.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AlbumServiceService } from './services/album-service.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     BrowserModule,
     NgbModule
   ],
-  providers: [],
+  providers: [AlbumServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
