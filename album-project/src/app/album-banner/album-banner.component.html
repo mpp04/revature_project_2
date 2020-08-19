@@ -1,11 +1,11 @@
   <ul ngbNav #nav="ngbNav" class="nav-tabs">
     <li ngbNavItem>
       <a ngbNavLink>Album List</a>
-      <ng-template ngbNavContent>List those albums</ng-template>
+      <ng-template ngbNavContent><app-album-list></app-album-list></ng-template>
     </li>
     <li ngbNavItem>
       <a ngbNavLink>About us</a>
-      <ng-template ngbNavContent>Go team</ng-template>
+      <ng-template ngbNavContent><app-about-us></app-about-us></ng-template>
     </li>
   </ul>
   <div [ngbNavOutlet]="nav"></div>
