@@ -17,31 +17,25 @@ public class CartContents {
     @JoinColumn(name="Albums", referencedColumnName = "album_id",columnDefinition = "INT NOT NULL")
     private Albums Product_Id; //Album_ID foreign key
 
-    @Column(name="quantity", columnDefinition = "INT NOT NULL")
-    private int Quantity;
-
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="Shopcarts", referencedColumnName = "shopcart_id",columnDefinition = "INT NOT NULL")
     private Shopcarts Shopcart_Id;
 
 
     //Constructors for CartsContents Class
-    public CartContents(int Cart_Id, Albums Product_Id, int Quantity, Shopcarts Shopcart_Id) {
+    public CartContents(int Cart_Id, Albums Product_Id, Shopcarts Shopcart_Id) {
         this.Cart_Id = Cart_Id;
         this.Product_Id = Product_Id;
-        this.Quantity = Quantity;
         this.Shopcart_Id = Shopcart_Id;
     }
 
-    public CartContents(Albums Product_Id, int Quantity, Shopcarts Shopcart_Id){
+    public CartContents(Albums Product_Id, Shopcarts Shopcart_Id){
         this.Product_Id = Product_Id;
-        this.Quantity = Quantity;
         this.Shopcart_Id = Shopcart_Id;
     }
 
-    public CartContents(Albums Product_Id, int Quantity){
+    public CartContents(Albums Product_Id){
         this.Product_Id = Product_Id;
-        this.Quantity = Quantity;
     }
 
     public CartContents(int Cart_Id) {
@@ -69,13 +63,6 @@ public class CartContents {
         Product_Id = product_Id;
     }
 
-    public int getQuantity() {
-        return Quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        Quantity = quantity;
-    }
 
     public Shopcarts getShopcart_Id() {
         return Shopcart_Id;
@@ -92,7 +79,6 @@ public class CartContents {
         return "CartContents{" +
                 "Cart_Id=" + Cart_Id +
                 ", Product_Id=" + Product_Id +
-                ", Quantity=" + Quantity +
                 ", Shopcart_Id=" + Shopcart_Id +
                 '}';
     }

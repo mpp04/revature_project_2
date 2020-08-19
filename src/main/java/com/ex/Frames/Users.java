@@ -22,10 +22,10 @@ public class Users {
     @Column(name="password",columnDefinition = "VARCHAR NOT NULL")
     private String Password;
 
-    @Column(name="first_name",columnDefinition = "VARCHAR NOT NULL")
+    @Column(name="first_name",columnDefinition = "VARCHAR")// NOT NULL")
     private String First_Name;
 
-    @Column(name="last_name",columnDefinition = "VARCHAR NOT NULL")
+    @Column(name="last_name",columnDefinition = "VARCHAR")// NOT NULL")
     private String Last_Name;
 
 

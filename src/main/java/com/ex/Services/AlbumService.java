@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.*;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -181,5 +182,25 @@ public class AlbumService implements AlbumDao {
         return foundDescription.getDescription();
     }
 
+    @Override
+    public float getPriceByAlbumId(int Album_Id){
+        Session session = null;
+        Albums foundPrice = null;
+        try{
+            session = sessionFactory.openSession();
+            foundPrice = (Albums) session.get(Albums.class, Album_Id);
+        } catch (HibernateException hex) {
+            hex.printStackTrace();
+            if(session != null && session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+        }finally {
+            if(session != null) {
+                session.close();
+            }
+        }
+
+        return foundPrice.getPrice();
+    }
 
 }

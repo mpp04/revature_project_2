@@ -3,6 +3,7 @@ package com.ex.Frames;
 import sun.security.krb5.internal.crypto.Des;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
@@ -36,9 +37,12 @@ public class Albums {
     @Column(name="year_released")
     private Timestamp Year_Released;
 
+    @Column(name="price")
+    private BigDecimal Price;
+
 
     //Constructors for Albums Class
-    public Albums(int Album_Id, Artists Artist_Id, Genres Genre_Id, String Album_Title, String Description, String Album_Art, Timestamp Year_Released){
+    public Albums(int Album_Id, Artists Artist_Id, Genres Genre_Id, String Album_Title, String Description, String Album_Art, Timestamp Year_Released,BigDecimal Price){
         this.Album_Id = Album_Id;
         this.Artist_Id = Artist_Id;
         this.Genre_Id = Genre_Id;
@@ -46,13 +50,15 @@ public class Albums {
         this.Description = Description;
         this.Album_Art = Album_Art;
         this.Year_Released = Year_Released;
+        this.Price = Price;
     }
 
-    public Albums(String Album_Title, String Description, String Album_Art, Timestamp Year_Released){
+    public Albums(String Album_Title, String Description, String Album_Art, Timestamp Year_Released,BigDecimal Price){
         this.Album_Title = Album_Title;
         this.Description = Description;
         this.Album_Art = Album_Art;
         this.Year_Released = Year_Released;
+        this.Price = Price;
     }
 
     public Albums() {
@@ -116,8 +122,16 @@ public class Albums {
         Year_Released = year_Released;
     }
 
+    public float getPrice() {
+        return Price.floatValue();
+    }
 
-    //To String Method for Albums class
+    public void setPrice(BigDecimal price) {
+        Price = price;
+    }
+
+
+    //To String Method for Album Class
     @Override
     public String toString() {
         return "Albums{" +
@@ -128,6 +142,7 @@ public class Albums {
                 ", Description='" + Description + '\'' +
                 ", Album_Art='" + Album_Art + '\'' +
                 ", Year_Released=" + Year_Released +
+                ", Price='" + Price + '\'' +
                 '}';
     }
 

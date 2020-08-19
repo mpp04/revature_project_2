@@ -13,12 +13,20 @@ public class Shopcarts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Shopcart_Id;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="users", referencedColumnName = "user_id",columnDefinition = "INT")
-    private Users User_Id;
+    @Column(name="user_id", columnDefinition = "INT")
+    private int User_Id;
 
 
     //Constructor for Shopcarts Class
+    public Shopcarts(int Shopcart_Id, int User_Id){
+        this.Shopcart_Id = Shopcart_Id;
+        this.User_Id = User_Id;
+    }
+
+    public Shopcarts( int Shopcart_Id){
+        this.Shopcart_Id = Shopcart_Id;
+    }
+
     public Shopcarts() {
     }
 
@@ -32,11 +40,11 @@ public class Shopcarts {
         Shopcart_Id = shopcart_Id;
     }
 
-    public Users getUser_Id() {
+    public int getUser_Id() {
         return User_Id;
     }
 
-    public void setUser_Id(Users user_Id) {
+    public void setUser_Id(int user_Id) {
         User_Id = user_Id;
     }
 

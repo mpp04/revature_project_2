@@ -1,5 +1,6 @@
 package com.ex.Services;
 
+import com.ex.Frames.Albums;
 import com.ex.Frames.Genres;
 import com.ex.Frames.ShopcartDao;
 import com.ex.Frames.Shopcarts;
@@ -29,19 +30,15 @@ public class ShopcartService implements ShopcartDao {
         this.sessionFactory = sessionFactory;
     }
 
+/*
 
     @Override
     public int getShopcartIdByUserId(int User_Id) {
         Session session = null;
-        Shopcarts foundShopcarts = null;
+        Shopcarts foundShopcart = null;
         try{
             session = sessionFactory.openSession();
-            session.beginTransaction();
-            Criteria cr = session.createCriteria(Shopcarts.class);
-            cr.add(Restrictions.eq("User_Id", User_Id));
-            foundShopcarts = (Shopcarts) cr.uniqueResult();
-            session.getTransaction().commit();
-
+            foundShopcart = (Shopcarts) session.get(Shopcarts.class, User_Id);
         } catch (HibernateException hex) {
             hex.printStackTrace();
             if(session != null && session.getTransaction() != null) {
@@ -52,23 +49,19 @@ public class ShopcartService implements ShopcartDao {
                 session.close();
             }
         }
-
-        return foundShopcarts.getShopcart_Id();
+        System.out.println(foundShopcart);
+        return foundShopcart.getShopcart_Id();
     }
+*/
 
 
     @Override
     public int getUserIdByShopcartId(int Shopcart_Id) {
         Session session = null;
-        Shopcarts foundShopcarts = null;
+        Shopcarts foundShopcart = null;
         try{
             session = sessionFactory.openSession();
-            session.beginTransaction();
-            Criteria cr = session.createCriteria(Shopcarts.class);
-            cr.add(Restrictions.eq("Shopcart_Id", Shopcart_Id));
-            foundShopcarts = (Shopcarts) cr.uniqueResult();
-            session.getTransaction().commit();
-
+            foundShopcart = (Shopcarts) session.get(Shopcarts.class, Shopcart_Id);
         } catch (HibernateException hex) {
             hex.printStackTrace();
             if(session != null && session.getTransaction() != null) {
@@ -80,6 +73,6 @@ public class ShopcartService implements ShopcartDao {
             }
         }
 
-        return foundShopcarts.getUser_Id().getUser_Id();
+        return foundShopcart.getUser_Id();
     }
 }

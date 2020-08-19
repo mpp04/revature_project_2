@@ -56,4 +56,10 @@ public class AlbumServiceTest extends TestCase {
     public void testGetAlbumDescription() {
         assertEquals("It works", albumService.getAlbumDescription(4), "rock songs by bowie");
     }
+
+    @Test
+    public void testGetPriceByAlbumId() {
+        assertEquals("It works", albumService.getPriceByAlbumId(9),9.99f);
+    }
+
 }

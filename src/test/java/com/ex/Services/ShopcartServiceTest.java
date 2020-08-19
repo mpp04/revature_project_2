@@ -1,4 +1,4 @@
-/*
+
 package com.ex.Services;
 
 import com.ex.HibernateUtil;
@@ -17,24 +17,30 @@ public class ShopcartServiceTest extends TestCase {
 
     private static SessionFactory sessionFactory;
     private static ShopcartService shopcartService;
-
+    //private static UserService userService;
 
     @BeforeClass
     public void setUp() throws Exception {
         HibernateUtil.connect();
         sessionFactory = HibernateUtil.getSessionFactory();
         shopcartService = new ShopcartService(sessionFactory);
+        //userService = new UserService(sessionFactory);
     }
 
-    @Test
+/*    @Test
     public void testGetShopcartIdByUserId() {
-        assertEquals("It works", shopcartService.getShopcartIdByUserId(), );
-    }
+        assertEquals("It works", shopcartService.getShopcartIdByUserId(3), 2);
+    }*/
 
     @Test
     public void testGetUserIdByShopcartId() {
-        assertEquals("It works", shopcartService.getUserIdByShopcartId(), );
+        assertEquals("It works", shopcartService.getUserIdByShopcartId(2), 3);
     }
+
+    @Test
+    public
+
 }
-*/
+
+
 
