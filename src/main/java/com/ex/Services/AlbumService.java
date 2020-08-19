@@ -56,17 +56,15 @@ public class AlbumService implements AlbumDao {
     @Override
     public List<Albums> getAlbumsByGenre(int Genre_Id) {
         Session session = null;
-        List<Albums> foundAlbums = new ArrayList<>();
+        //List<Albums> foundAlbums = new ArrayList<>();
         try{
             session = sessionFactory.openSession();
-            Criteria cr = session.createCriteria(Albums.class);
-            Criteria crUser = cr.createCriteria("Genre_Id");
-            crUser.add(Restrictions.eq("Genre_Id", Genre_Id));
+            String hql = "from Albums where genre_id = :g";
+            Query query = session.createQuery(hql);
+            query.setInteger("g", Genre_Id);
 
-            for(Object o : cr.list()){
-                foundAlbums.add((Albums) o);
-            }
-
+            List foundAlbums = (List)query.list();
+            return foundAlbums;
         } catch (HibernateException hex) {
             hex.printStackTrace();
             if(session != null && session.getTransaction() != null) {
@@ -77,23 +75,23 @@ public class AlbumService implements AlbumDao {
                 session.close();
             }
         }
-
-        return foundAlbums;
+        //System.out.println(foundAlbums);
+        //return foundAlbums;
+        return null;
     }
 
     @Override
     public List<Albums> getAlbumsByArtist(int Artist_Id) {
         Session session = null;
-        List<Albums> foundAlbums = new ArrayList<>();
+        //List<Albums> foundAlbums = new ArrayList<>();
         try{
             session = sessionFactory.openSession();
-            Criteria cr = session.createCriteria(Albums.class);
-            Criteria crUser = cr.createCriteria("Artist_Id");
-            crUser.add(Restrictions.eq("Artist_Id", Artist_Id));
+            String hql = "from Albums where artist_id = :g";
+            Query query = session.createQuery(hql);
+            query.setInteger("g", Artist_Id);
 
-            for(Object o : cr.list()){
-                foundAlbums.add((Albums) o);
-            }
+            List foundAlbums = (List)query.list();
+            return foundAlbums;
 
         } catch (HibernateException hex) {
             hex.printStackTrace();
@@ -106,22 +104,21 @@ public class AlbumService implements AlbumDao {
             }
         }
 
-        return foundAlbums;
+        return null;
     }
 
     @Override
     public List<Albums> getAlbumsByTitle(String Album_Title) {
         Session session = null;
-        List<Albums> foundAlbums = new ArrayList<>();
+        //List<Albums> foundAlbums = new ArrayList<>();
         try{
             session = sessionFactory.openSession();
-            Criteria cr = session.createCriteria(Albums.class);
-            Criteria crUser = cr.createCriteria("Album_Title");
-            crUser.add(Restrictions.eq("Album_Title", Album_Title));
+            String hql = "from Albums where album_title = :g";
+            Query query = session.createQuery(hql);
+            query.setString("g", Album_Title);
 
-            for(Object o : cr.list()){
-                foundAlbums.add((Albums) o);
-            }
+            List foundAlbums = (List)query.list();
+            return foundAlbums;
 
         } catch (HibernateException hex) {
             hex.printStackTrace();
@@ -134,7 +131,7 @@ public class AlbumService implements AlbumDao {
             }
         }
 
-        return foundAlbums;
+        return null;
     }
 
     @Override
@@ -166,10 +163,10 @@ public class AlbumService implements AlbumDao {
     @Override
     public String getAlbumDescription(int Album_Id) {
         Session session = null;
-        String foundDescription = null;
+        Albums foundDescription = null;
         try{
             session = sessionFactory.openSession();
-            foundDescription = (String) session.get(Albums.class, Album_Id);
+            foundDescription = (Albums) session.get(Albums.class, Album_Id);
         } catch (HibernateException hex) {
             hex.printStackTrace();
             if(session != null && session.getTransaction() != null) {
@@ -181,7 +178,7 @@ public class AlbumService implements AlbumDao {
             }
         }
 
-        return foundDescription;
+        return foundDescription.getDescription();
     }
 
 

@@ -3,18 +3,19 @@ package com.ex.Frames;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "shopcarts", schema = "project2")
 public class Shopcarts {
 
 
     //Fields for Shopcarts Class
     @Id
     @Column(name="shopcart_id", columnDefinition = "SERIAL NOT NULL")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Shopcart_Id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="Users", referencedColumnName = "user_Id",columnDefinition = "INT")
-    private int User_Id;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="users", referencedColumnName = "user_id",columnDefinition = "INT")
+    private Users User_Id;
 
 
     //Constructor for Shopcarts Class
@@ -31,11 +32,11 @@ public class Shopcarts {
         Shopcart_Id = shopcart_Id;
     }
 
-    public int getUser_Id() {
+    public Users getUser_Id() {
         return User_Id;
     }
 
-    public void setUser_Id(int user_Id) {
+    public void setUser_Id(Users user_Id) {
         User_Id = user_Id;
     }
 

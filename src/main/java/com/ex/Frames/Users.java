@@ -3,13 +3,14 @@ package com.ex.Frames;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "users",schema = "project2")
 public class Users {
 
 
     //Fields for Users Class
     @Id
     @Column(name="user_id", columnDefinition = "SERIAL NOT NULL")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int User_Id;
 
     @Column(name="email",columnDefinition = "UNIQUE NOT NULL")
@@ -18,13 +19,13 @@ public class Users {
     @Column(name="username",columnDefinition = "UNIQUE NOT NULL")
     private String Username;
 
-    @Column(name="password",columnDefinition = "NOT NULL")
+    @Column(name="password",columnDefinition = "VARCHAR NOT NULL")
     private String Password;
 
-    @Column(name="first_name",columnDefinition = "NOT NULL")
+    @Column(name="first_name",columnDefinition = "VARCHAR NOT NULL")
     private String First_Name;
 
-    @Column(name="last_name",columnDefinition = "NOT NULL")
+    @Column(name="last_name",columnDefinition = "VARCHAR NOT NULL")
     private String Last_Name;
 
 

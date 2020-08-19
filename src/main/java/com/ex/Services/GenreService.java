@@ -59,7 +59,7 @@ public class GenreService implements GenreDao {
     }
 
     @Override
-    public Genres getGenreById(int Genre_Id) {
+    public String getGenreById(int Genre_Id) {
         Session session = null;
         Genres foundGenres = null;
         try{
@@ -81,6 +81,6 @@ public class GenreService implements GenreDao {
             }
         }
 
-        return foundGenres;
+        return foundGenres.getGenre_Name();
     }
 }

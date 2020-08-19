@@ -36,7 +36,7 @@ public class CartContentService implements CartContentDao {
             cr2.add(Restrictions.eq("Cart_Id", Cart_Id));
             foundItem = (CartContents) cr1.uniqueResult();
             foundQuantity = (CartContents) cr2.uniqueResult();
-            int productElement = foundItem.getProduct_Id();
+            int productElement = foundItem.getProduct_Id().getAlbum_Id();
             int quantityElement = foundQuantity.getQuantity();
             session.getTransaction().commit();
             ItemInfo[0] = productElement;

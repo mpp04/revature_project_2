@@ -61,7 +61,7 @@ public class ArtistService implements ArtistDao {
     }
 
     @Override
-    public Artists getArtistById(int Artist_Id) {
+    public String getArtistById(int Artist_Id) {
         Session session = null;
         Artists foundArtists = null;
         try{
@@ -83,7 +83,7 @@ public class ArtistService implements ArtistDao {
             }
         }
 
-        return foundArtists;
+        return foundArtists.getArtist_Name();
     }
 
     @Override

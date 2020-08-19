@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table
+@Table(name = "albums", schema = "project2")
 public class Albums {
 
 
@@ -17,12 +17,12 @@ public class Albums {
     private int Album_Id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="Artists", referencedColumnName = "artist_id",columnDefinition = "INT")
-    private int Artist_Id;
+    @JoinColumn(name="artists", referencedColumnName = "artist_id",columnDefinition = "INT")
+    private Artists Artist_Id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="Genres", referencedColumnName = "genre_id",columnDefinition = "INT")
-    private int Genre_Id;
+    @JoinColumn(name="genres", referencedColumnName = "genre_id",columnDefinition = "INT")
+    private Genres Genre_Id;
 
     @Column(name="album_title")
     private String Album_Title;
@@ -38,7 +38,7 @@ public class Albums {
 
 
     //Constructors for Albums Class
-    public Albums(int Album_Id, int Artist_Id, int Genre_Id, String Album_Title, String Description, String Album_Art, Timestamp Year_Released){
+    public Albums(int Album_Id, Artists Artist_Id, Genres Genre_Id, String Album_Title, String Description, String Album_Art, Timestamp Year_Released){
         this.Album_Id = Album_Id;
         this.Artist_Id = Artist_Id;
         this.Genre_Id = Genre_Id;
@@ -68,19 +68,19 @@ public class Albums {
         Album_Id = album_Id;
     }
 
-    public int getArtist_Id() {
+    public Artists getArtist_Id() {
         return Artist_Id;
     }
 
-    public void setArtist_Id(int artist_Id) {
+    public void setArtist_Id(Artists artist_Id) {
         Artist_Id = artist_Id;
     }
 
-    public int getGenre_Id() {
+    public Genres getGenre_Id() {
         return Genre_Id;
     }
 
-    public void setGenre_Id(int genre_Id) {
+    public void setGenre_Id(Genres genre_Id) {
         Genre_Id = genre_Id;
     }
 

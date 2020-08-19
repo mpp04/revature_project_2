@@ -3,7 +3,7 @@ package com.ex.Frames;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "genres",schema = "project2")
 public class Genres {
 
 

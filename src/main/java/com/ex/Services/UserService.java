@@ -34,8 +34,8 @@ public class UserService implements UserDao{
         try {
             session = sessionFactory.openSession();
             Criteria cr = session.createCriteria(Users.class);
-            Criterion usernameCr = Restrictions.eq("username", Username);
-            Criterion passwordCr = Restrictions.eq("password", Password);
+            Criterion usernameCr = Restrictions.eq("Username", Username);
+            Criterion passwordCr = Restrictions.eq("Password", Password);
             LogicalExpression andExp = Restrictions.and(usernameCr, passwordCr);
             cr.add(andExp);
             Users loggedInUser = (Users) cr.uniqueResult();
@@ -83,7 +83,7 @@ public class UserService implements UserDao{
             session = sessionFactory.openSession();
             session.beginTransaction();
             Criteria cr = session.createCriteria(Users.class);
-            cr.add(Restrictions.eq("username", Username));
+            cr.add(Restrictions.eq("Username", Username));
             foundUser = (Users) cr.uniqueResult();
             session.getTransaction().commit();
 
@@ -108,8 +108,8 @@ public class UserService implements UserDao{
         try{
             session = sessionFactory.openSession();
             session.beginTransaction();
-            Criteria cr = session.createCriteria(Shopcarts.class);
-            cr.add(Restrictions.eq("username", Username));
+            Criteria cr = session.createCriteria(Users.class);
+            cr.add(Restrictions.eq("Username", Username));
             foundUsers = (Users) cr.uniqueResult();
             session.getTransaction().commit();
 
@@ -134,8 +134,8 @@ public class UserService implements UserDao{
         try{
             session = sessionFactory.openSession();
             session.beginTransaction();
-            Criteria cr = session.createCriteria(Shopcarts.class);
-            cr.add(Restrictions.eq("user_id", User_Id));
+            Criteria cr = session.createCriteria(Users.class);
+            cr.add(Restrictions.eq("User_Id", User_Id));
             foundUsers = (Users) cr.uniqueResult();
             session.getTransaction().commit();
 
@@ -154,7 +154,7 @@ public class UserService implements UserDao{
     }
 
     @Override
-    public int updateEmail(String User_Id, String Email) {
+    public int updateEmail(int User_Id, String Email) {
         Session session = null;
         try {
             session = sessionFactory.openSession();
@@ -164,7 +164,7 @@ public class UserService implements UserDao{
                 foundUser.setEmail(Email);
                 session.update(foundUser);
                 session.getTransaction().commit();
-                return 1;
+                return 0;
             }
 
         } catch (HibernateException hex) {
@@ -177,7 +177,7 @@ public class UserService implements UserDao{
                 session.close();
             }
         }
-        return 0;
+        return 1;
     }
 
     @Override
@@ -219,7 +219,7 @@ public class UserService implements UserDao{
             if(foundUser!=null){
                 session.delete(foundUser);
                 session.getTransaction().commit();
-                return 1;
+                return 0;
             }
 
         } catch (HibernateException hex) {
@@ -232,6 +232,6 @@ public class UserService implements UserDao{
                 session.close();
             }
         }
-        return 0;
+        return 1;
     }
 }

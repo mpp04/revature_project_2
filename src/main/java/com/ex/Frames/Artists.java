@@ -5,13 +5,14 @@ import javax.persistence.*;
 
 
 @Entity
-@Table
+@Table(name = "artists",schema = "project2")
 public class Artists {
 
 
     //Fields for Artists Class
     @Id
     @Column(name="artist_id", columnDefinition = "SERIAL NOT NULL")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Artist_Id;
 
     @Column(name="artist_name")

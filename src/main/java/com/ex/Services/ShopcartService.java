@@ -80,6 +80,6 @@ public class ShopcartService implements ShopcartDao {
             }
         }
 
-        return foundShopcarts.getUser_Id();
+        return foundShopcarts.getUser_Id().getUser_Id();
     }
 }

@@ -17,6 +17,7 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
 
+    <!--<property name="hibernate.default_schema">Project2</property>-->
     <!-- use hibernate to create our schema -->
     <!-- Four values for hbm2ddl.auto
       - create - drop then create at startup
@@ -28,10 +29,12 @@
 
     <!-- object mappings -->
     <!-- <mapping file="honeypot.hbm.xml"/> -->
-    <!--<mapping class="com.ex.com.ex.com.ex.Frames.Users"/>-->
-    <!--<mapping class="com.ex.com.ex.com.ex.Frames.Surveys"/>-->
-    <!--<mapping class="com.ex.com.ex.com.ex.Frames.Responses"/>-->
-    <!--    <mapping package="com.ex.com.ex.com.ex.Frames"/>-->
+    <mapping class="com.ex.Frames.Albums"/>
+    <mapping class="com.ex.Frames.Artists"/>
+    <mapping class="com.ex.Frames.CartContents"/>
+    <mapping class="com.ex.Frames.Genres"/>
+    <mapping class="com.ex.Frames.Shopcarts"/>
+    <mapping class="com.ex.Frames.Users"/>
   </session-factory> <!-- SessionFactory Interface -->
 </hibernate-configuration>
 
