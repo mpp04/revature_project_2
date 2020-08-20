@@ -13,33 +13,27 @@ public class CartContents {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Cart_Id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="Albums", referencedColumnName = "album_id",columnDefinition = "INT NOT NULL")
-    private Albums Product_Id; //Album_ID foreign key
+    @Column(name="product_id", columnDefinition = "INT")
+    private int Product_Id; //Album_ID foreign key
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="Shopcarts", referencedColumnName = "shopcart_id",columnDefinition = "INT NOT NULL")
-    private Shopcarts Shopcart_Id;
+    @Column(name="shopcart_id", columnDefinition = "INT")
+    private int Shopcart_Id;
 
 
     //Constructors for CartsContents Class
-    public CartContents(int Cart_Id, Albums Product_Id, Shopcarts Shopcart_Id) {
+    public CartContents(int Cart_Id, int Product_Id, int Shopcart_Id) {
         this.Cart_Id = Cart_Id;
         this.Product_Id = Product_Id;
         this.Shopcart_Id = Shopcart_Id;
     }
 
-    public CartContents(Albums Product_Id, Shopcarts Shopcart_Id){
+    public CartContents(int Product_Id, int Shopcart_Id){
         this.Product_Id = Product_Id;
         this.Shopcart_Id = Shopcart_Id;
     }
 
-    public CartContents(Albums Product_Id){
+    public CartContents(int Product_Id){
         this.Product_Id = Product_Id;
-    }
-
-    public CartContents(int Cart_Id) {
-        this.Cart_Id = Cart_Id;
     }
 
     public CartContents(){
@@ -55,20 +49,19 @@ public class CartContents {
         Cart_Id = cart_Id;
     }
 
-    public Albums getProduct_Id() {
+    public int getProduct_Id() {
         return Product_Id;
     }
 
-    public void setProduct_Id(Albums product_Id) {
+    public void setProduct_Id(int product_Id) {
         Product_Id = product_Id;
     }
 
-
-    public Shopcarts getShopcart_Id() {
+    public int getShopcart_Id() {
         return Shopcart_Id;
     }
 
-    public void setShopcart_Id(Shopcarts shopcart_Id) {
+    public void setShopcart_Id(int shopcart_Id) {
         Shopcart_Id = shopcart_Id;
     }
 

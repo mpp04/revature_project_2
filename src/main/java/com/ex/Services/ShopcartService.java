@@ -1,9 +1,6 @@
 package com.ex.Services;
 
-import com.ex.Frames.Albums;
-import com.ex.Frames.Genres;
-import com.ex.Frames.ShopcartDao;
-import com.ex.Frames.Shopcarts;
+import com.ex.Frames.*;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.SessionFactory;
@@ -74,5 +71,30 @@ public class ShopcartService implements ShopcartDao {
         }
 
         return foundShopcart.getUser_Id();
+    }
+
+    @Override
+    public Shopcarts addShopcartByUserId(int User_Id) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            Shopcarts newShopCart = new Shopcarts();
+            newShopCart.setUser_Id(User_Id);
+            session.save(newShopCart);
+            session.getTransaction().commit();
+            return newShopCart;
+
+        } catch (HibernateException hex) {
+            hex.printStackTrace();
+            if(session != null && session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+        }finally {
+            if(session != null) {
+                session.close();
+            }
+        }
+        return null;
     }
 }

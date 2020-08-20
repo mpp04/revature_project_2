@@ -38,7 +38,9 @@ public class ShopcartServiceTest extends TestCase {
     }
 
     @Test
-    public
+    public void testAddShopcartByUserId(){
+        assertEquals("It no work", shopcartService.addShopcartByUserId(3).getUser_Id(),3);
+    }
 
 }
 

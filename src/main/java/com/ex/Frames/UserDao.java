@@ -14,6 +14,6 @@ public interface UserDao {
     String getUsernameByUserId(int User_Id);
     int updateEmail(int User_Id, String Email);
     Users createAccount(String Email, String Username, String Password, String First_Name, String Last_Name);
-    int deleteUserById(int User_Id);
+    //int deleteUserById(int User_Id);
 
 }

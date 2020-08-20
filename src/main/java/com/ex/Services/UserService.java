@@ -209,7 +209,7 @@ public class UserService implements UserDao{
         return null;
     }
 
-    @Override
+/*    @Override
     public int deleteUserById(int User_Id) {
         Session session = null;
         try {
@@ -233,5 +233,6 @@ public class UserService implements UserDao{
             }
         }
         return 1;
-    }
+    }*/
+
 }
