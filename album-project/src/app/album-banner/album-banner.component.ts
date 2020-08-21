@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Album } from '../models/Album';
 
 @Component({
   selector: 'app-album-banner',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./album-banner.component.css']
 })
 export class AlbumBannerComponent implements OnInit {
+
+  cart: Album[];
 
   constructor() { }
 
