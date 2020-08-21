@@ -12,12 +12,12 @@ export class AlbumListComponent implements OnInit {
   albumList: Album[];
   searchTitle: string;
   searchGenre: number;
-  searchArtsit: number;
+  searchArtist: number;
 
 
   constructor(private albumServ: AlbumServiceService) {
     this.albumList = this.albumServ.getAlbums();
-    this.searchTitle = 'wowo';
+    this.searchTitle = '';
    }
 
   ngOnInit(): void {
@@ -25,7 +25,11 @@ export class AlbumListComponent implements OnInit {
 
   }
 
-  clicker(): void {
-    console.log(this.searchTitle);
+  addToCart(title: string): void {
+    console.log(`${title} added to cart`);
+  }
+
+  search(): void {
+    console.log(`Search title: ${this.searchTitle} - Search Genre: ${this.searchGenre} - Search Artist ${this.searchArtist}`);
   }
 }
