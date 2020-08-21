@@ -8,5 +8,11 @@
       <a ngbNavLink>About us</a>
       <ng-template ngbNavContent><app-about-us></app-about-us></ng-template>
     </li>
+    <li ngbNavItem>
+      <div class="cart">
+        <a ngbNavLink>Cart</a>
+        <ng-template ngbNavContent><app-user-cart></app-user-cart></ng-template>
+      </div>
+    </li>
   </ul>
   <div [ngbNavOutlet]="nav"></div>
