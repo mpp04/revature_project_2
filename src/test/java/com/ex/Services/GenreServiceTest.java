@@ -26,12 +26,18 @@ public class GenreServiceTest extends TestCase {
     }
 
     @Test
+    public void testGetAllGenres() {
+        assertEquals("It works", genreService.getAllGenres().get(0).getGenre_Id(),4);
+    }
+
+    @Test
     public void testGetGenreIdByGenre() {
-        assertEquals("It works", genreService.getGenreIdByGenre("rap"), 3);
+        assertEquals("It works", genreService.getGenreIdByGenre("Rap"), 3);
     }
 
     @Test
     public void testGetGenreById() {
-        assertEquals("It works", genreService.getGenreById(3), "rap");
+        assertEquals("It works", genreService.getGenreById(3), "Rap");
     }
+
 }

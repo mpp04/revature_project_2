@@ -10,11 +10,22 @@ import { Album } from '../models/Album';
 export class AlbumListComponent implements OnInit {
 
   albumList: Album[];
+  searchTitle: string;
+  searchGenre: number;
+  searchArtsit: number;
 
-  constructor(private albumServ: AlbumServiceService) { }
+
+  constructor(private albumServ: AlbumServiceService) {
+    this.albumList = this.albumServ.getAlbums();
+    this.searchTitle = 'wowo';
+   }
 
   ngOnInit(): void {
     this.albumList = this.albumServ.getAlbums();
+
   }
 
+  clicker(): void {
+    console.log(this.searchTitle);
+  }
 }

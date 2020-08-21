@@ -32,6 +32,6 @@ export class AlbumServiceService {
         price: 0
       }
     ];
-    return null;
+    return albums;
   }
 }
