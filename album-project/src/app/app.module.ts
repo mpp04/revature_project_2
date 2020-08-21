@@ -7,6 +7,7 @@ import { AlbumBannerComponent } from './album-banner/album-banner.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AlbumServiceService } from './services/album-service.service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AlbumServiceService } from './services/album-service.service';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [AlbumServiceService],
   bootstrap: [AppComponent]
