@@ -10,7 +10,9 @@ export class AlbumBannerComponent implements OnInit {
 
   cart: Album[];
 
-  constructor() { }
+  constructor() {
+    this.cart = []; // Needs to be initially empty to properly set up the HTML view
+   }
 
   ngOnInit(): void {
   }
