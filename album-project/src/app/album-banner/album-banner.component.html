@@ -8,11 +8,10 @@
       <a ngbNavLink>About us</a>
       <ng-template ngbNavContent><app-about-us></app-about-us></ng-template>
     </li>
-    <li ngbNavItem>
-      <div class="cart">
-        <a ngbNavLink>Cart {{cart.length}}</a>
+    <li ngbNavItem class="cart">
+        <a ngbNavLink><img src="../../assets/shopping-cart.png"/> {{cart.length}}</a>
         <ng-template ngbNavContent><app-user-cart></app-user-cart></ng-template>
-      </div>
     </li>
   </ul>
   <div [ngbNavOutlet]="nav"></div>
+  
