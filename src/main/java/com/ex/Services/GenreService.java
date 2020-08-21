@@ -1,10 +1,7 @@
 package com.ex.Services;
 
-import com.ex.Frames.Artists;
-import com.ex.Frames.GenreDao;
-import com.ex.Frames.Genres;
+import com.ex.Frames.*;
 
-import com.ex.Frames.Shopcarts;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.*;
@@ -31,6 +28,30 @@ public class GenreService implements GenreDao {
         this.sessionFactory = sessionFactory;
     }
 
+
+    @Override
+    public List<Genres> getAllGenres() {
+        Session session = null;
+        List<Genres> foundGenres = new ArrayList<>();
+        try {
+            session = sessionFactory.openSession();
+            String hql = "FROM Genres";
+            Query query = session.createQuery(hql);
+            for(Object o : query.list()){
+                foundGenres.add((Genres) o);
+            }
+        } catch (HibernateException hex) {
+            hex.printStackTrace();
+            if(session != null && session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+        }finally {
+            if(session != null) {
+                session.close();
+            }
+        }
+        return foundGenres;
+    }
 
     @Override
     public int getGenreIdByGenre(String Genre_Name) {
@@ -83,4 +104,6 @@ public class GenreService implements GenreDao {
 
         return foundGenres.getGenre_Name();
     }
+
+
 }
