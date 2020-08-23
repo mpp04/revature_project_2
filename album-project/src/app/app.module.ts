@@ -8,14 +8,16 @@ import { AlbumBannerComponent } from './album-banner/album-banner.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AlbumServiceService } from './services/album-service.service';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { UserCartComponent } from './user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumBannerComponent,
     AlbumListComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    UserCartComponent
   ],
   imports: [
     BrowserModule,

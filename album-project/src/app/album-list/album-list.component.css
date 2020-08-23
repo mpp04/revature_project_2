@@ -16,8 +16,12 @@
     margin: 0.5em;
 }
 
-#additional{
+.additional{
     font-size: small;
+}
+
+.bottom{
+  display:inline-block;
 }
 
 a:link {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AlbumServiceService } from '../services/album-service.service';
 import { Album } from '../models/Album';
 
@@ -9,15 +9,17 @@ import { Album } from '../models/Album';
 })
 export class AlbumListComponent implements OnInit {
 
+  @Output() toCart: EventEmitter<Album> = new EventEmitter();
+
   albumList: Album[];
   searchTitle: string;
   searchGenre: number;
-  searchArtsit: number;
+  searchArtist: number;
 
 
   constructor(private albumServ: AlbumServiceService) {
     this.albumList = this.albumServ.getAlbums();
-    this.searchTitle = 'wowo';
+    this.searchTitle = '';
    }
 
   ngOnInit(): void {
@@ -25,7 +27,15 @@ export class AlbumListComponent implements OnInit {
 
   }
 
-  clicker(): void {
-    console.log(this.searchTitle);
+  addToCart(id: number): void {
+    const indexOfId = (album: Album) => album.id === id; // Callback function for find index
+    const albumIndex = this.albumList.findIndex(indexOfId); // Perform the search
+    const chosenAlbum = this.albumList[albumIndex];
+    console.log(`${chosenAlbum.name} added to cart`);
+    this.toCart.emit(chosenAlbum);
+  }
+
+  search(): void {
+    console.log(`Search title: ${this.searchTitle} - Search Genre: ${this.searchGenre} - Search Artist ${this.searchArtist}`);
   }
 }
