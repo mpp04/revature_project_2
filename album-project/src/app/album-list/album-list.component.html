@@ -35,7 +35,7 @@
             <h6 class="card-subtitle mb-2 text-muted">By {{ album.artist }}</h6>
             <div class="bottom">
               <p class="additional">{{album.genre}} • {{album.price | currency}}</p>
-              <button (click)="addToCart(album.name)" class="btn btn-primary">Add to Cart</button>
+              <button (click)="addToCart(album.id)" class="btn btn-primary">Add to Cart</button>
             </div>
         </div>
     </div>
