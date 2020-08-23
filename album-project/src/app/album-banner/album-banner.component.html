@@ -2,7 +2,7 @@
     <div class="navbar-brand">Album List</div>
     <li ngbNavItem>
       <a ngbNavLink>Album List</a>
-      <ng-template ngbNavContent><app-album-list></app-album-list></ng-template>
+      <ng-template ngbNavContent><app-album-list (toCart)="updateCart($event)"></app-album-list></ng-template>
     </li>
     <li ngbNavItem>
       <a ngbNavLink>About us</a>
@@ -10,7 +10,7 @@
     </li>
     <li ngbNavItem class="cart">
         <a ngbNavLink><img src="../../assets/shopping-cart.png"/> {{cart.length}}</a>
-        <ng-template ngbNavContent><app-user-cart></app-user-cart></ng-template>
+        <ng-template ngbNavContent><app-user-cart [cart]="cart"></app-user-cart></ng-template>
     </li>
   </ul>
   <div [ngbNavOutlet]="nav"></div>
