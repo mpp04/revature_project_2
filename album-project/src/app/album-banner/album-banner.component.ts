@@ -17,4 +17,9 @@ export class AlbumBannerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  updateCart(album: Album): void{
+    this.cart.push(album);
+    console.log(`Yep, ${album.name} was added.`);
+  }
+
 }
