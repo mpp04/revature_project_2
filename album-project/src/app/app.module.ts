@@ -11,6 +11,8 @@ import { AlbumServiceService } from './services/album-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { UserAccessComponent } from './user-access/user-access.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { UserAccessComponent } from './user-access/user-access.component';
     AlbumListComponent,
     AboutUsComponent,
     UserCartComponent,
-    UserAccessComponent
+    UserAccessComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
