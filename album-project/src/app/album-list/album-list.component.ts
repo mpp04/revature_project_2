@@ -31,7 +31,7 @@ export class AlbumListComponent implements OnInit {
     const indexOfId = (album: Album) => album.id === id; // Callback function for find index
     const albumIndex = this.albumList.findIndex(indexOfId); // Perform the search
     const chosenAlbum = this.albumList[albumIndex];
-    console.log(`${chosenAlbum.name} added to cart`);
+    console.log(`Trying to add ${chosenAlbum.name} to cart...`);
     this.toCart.emit(chosenAlbum);
   }
 
