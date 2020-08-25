@@ -1,6 +1,6 @@
 export class Album{
     // This will be our Album model to catch all data from our backend.
-
+    id: number; // album id
     name: string; // Album's Name
     art: string; // Cover Art of the album
     artist: string; // Artist who produced the albums

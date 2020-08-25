@@ -1,1 +1,43 @@
-<p>album-list works!</p>
+<form>
+    <div class="form-group" id="search-name">
+      <label for="exampleFormControlInput1">Search by Album Name: </label>
+      <input [(ngModel)]="searchTitle" class="form-control" name="title" placeholder="Album Name...">
+    </div>
+    <div class="form-group" id="search-genre">
+      <label for="exampleFormControlSelect1">Genre Select</label>
+      <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group" id="search-artist">
+      <label for="exampleFormControlSelect1">Artist Select</label>
+      <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <button (click)="search()">Test</button>
+  </form>
+
+<div class='album-holder' *ngFor="let album of albumList">
+    <!-- <a href="#"> -->
+    <div class="card album" style="width: 18rem;">
+        <img [src]="album.art" class="card-img-top album-art" alt="Album Cover Art">
+        <div class="card-body">
+            <h5 class="card-title">{{ album.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">By {{ album.artist }}</h6>
+            <div class="bottom">
+              <p class="additional">{{album.genre}} • {{album.price | currency}}</p>
+              <button (click)="addToCart(album.id)" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <!-- </a> -->
+</div>

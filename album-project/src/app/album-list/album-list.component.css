@@ -1,0 +1,44 @@
+.album-holder {
+    display:inline-block;
+    margin: 0.5em;  
+}
+
+.album-holder:hover {
+    box-shadow: 0.5em 0.5em 0.25em grey;
+}
+
+.album-art {
+    max-height: 17em;
+}
+
+.form-group{
+    display:inline-block;
+    margin: 0.5em;
+}
+
+.additional{
+    font-size: small;
+}
+
+.bottom{
+  display:inline-block;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: cornflowerblue;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
