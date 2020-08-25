@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Album } from '../models/Album';
+// import { file-saver }
 
 @Component({
   selector: 'app-user-cart',
@@ -8,6 +9,7 @@ import { Album } from '../models/Album';
 })
 export class UserCartComponent implements OnInit {
   @Input() cart: Album[];
+  totalPrice: number;
 
   constructor() { }
 
@@ -20,6 +22,20 @@ export class UserCartComponent implements OnInit {
     const chosenAlbum = this.cart.splice(albumIndex - 1, 1);
     console.log(chosenAlbum);
     console.log(`${chosenAlbum[0].name} removed to cart`);
+    this.getTotalPrice();
+  }
+
+  getTotalPrice(): number{
+    this.totalPrice = 0;
+    for (const item of this.cart){
+      this.totalPrice += item.price;
+    }
+    return this.totalPrice;
+  }
+
+  purchase(): void{
+    this.cart = [];
+    console.log('Purchased!');
   }
 
 }
