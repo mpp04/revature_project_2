@@ -1,14 +1,30 @@
+
 <h1> About Us </h1>
 <p> The FF Team behind Album 1 </p>
-<div>  {{ contributors }}
-
-
-<div (onload)="getData()"> </div>
-<!--The code to display images -->
-<div *ngFor="let image of data; let i = index" style="text-align:center">
-<div *ngIf="i<5">
-   {{ image.title }}
  
- <img width="200" alt="thumbnail" [src]="image.thumbnailUrl">
-</div> </div> 
-Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+  <div class='cardholder' *ngFor="let image of data; index as i;"> 
+    <div *ngIf="i<4">
+
+    <div class="card" style="width: 18rem;">
+      <img [src]="image.thumbnailUrl" class="card-img-top" alt="Alternative text ">
+      <div class="card-body">
+        <h5 class="card-title"> {{ contributors[i] }} </h5>
+        <p class="card-text">{{ contributors[i] }} {{ is_amazing[i] }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+    </div>
+   
+ 
+
+    <!--
+
+       
+<div *ngFor="let image of data" style="text-align:center">
+  <h3>
+     {{ image.title }}
+   </h3>
+   <img width="200" alt="thumbnail" [src]="image.thumbnailUrl">
+  </div> 
+    -->
