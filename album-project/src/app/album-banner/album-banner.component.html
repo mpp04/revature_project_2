@@ -1,17 +1,22 @@
-  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <ul ngbNav [(activeId)]="activeId" #nav="ngbNav" class="nav-tabs">
     <div class="navbar-brand">Album List</div>
-    <li ngbNavItem>
+    <li ngbNavItem [ngbNavItem]="1">
       <a ngbNavLink>Album List</a>
       <ng-template ngbNavContent><app-album-list (toCart)="updateCart($event)"></app-album-list></ng-template>
     </li>
-    <li ngbNavItem>
+    <li ngbNavItem [ngbNavItem]="2">
       <a ngbNavLink>About us</a>
       <ng-template ngbNavContent><app-about-us></app-about-us></ng-template>
     </li>
-    <li ngbNavItem class="cart">
+    <li ngbNavItem class="cart" *ngIf="userLoggedIn" [ngbNavItem]="3">
         <a ngbNavLink><img src="../../assets/shopping-cart.png"/> {{cart.length}}</a>
         <ng-template ngbNavContent><app-user-cart [cart]="cart"></app-user-cart></ng-template>
     </li>
+    <li ngbNavItem *ngIf="!userLoggedIn" [ngbNavItem]="4">
+      <a ngbNavLink>Login / Sign Up</a>
+      <ng-template ngbNavContent><app-user-access (userAccess)="updateUser($event)"></app-user-access></ng-template>
+    </li>
   </ul>
   <div [ngbNavOutlet]="nav"></div>
+  
   

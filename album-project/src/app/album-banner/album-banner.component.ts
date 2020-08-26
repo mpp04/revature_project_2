@@ -9,9 +9,13 @@ import { Album } from '../models/Album';
 export class AlbumBannerComponent implements OnInit {
 
   cart: Album[];
+  userLoggedIn: boolean;
+  activeId: number;
 
   constructor() {
     this.cart = []; // Needs to be initially empty to properly set up the HTML view
+    this.userLoggedIn = false;
+    this.activeId = 1;
    }
 
   ngOnInit(): void {
@@ -31,6 +35,11 @@ export class AlbumBannerComponent implements OnInit {
     }
     this.cart.push(givenAlbum);
     console.log(`Yep, ${givenAlbum.name} was added.`);
+  }
+
+  updateUser(signedIn: boolean): void{
+    this.userLoggedIn = signedIn;
+    this.activeId = 1;
   }
 
 }

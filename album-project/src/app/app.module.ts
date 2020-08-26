@@ -10,6 +10,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AlbumServiceService } from './services/album-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { UserAccessComponent } from './user-access/user-access.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     AlbumBannerComponent,
     AlbumListComponent,
     AboutUsComponent,
-    UserCartComponent
+    UserCartComponent,
+    UserAccessComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
