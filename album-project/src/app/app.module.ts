@@ -8,6 +8,7 @@ import { AlbumBannerComponent } from './album-banner/album-banner.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AlbumServiceService } from './services/album-service.service';
+import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { UserAccessComponent } from './user-access/user-access.component';
@@ -31,7 +32,7 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AlbumServiceService],
+  providers: [AlbumServiceService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
