@@ -11,20 +11,22 @@ export class AlbumListComponent implements OnInit {
 
   @Output() toCart: EventEmitter<Album> = new EventEmitter();
 
-  albumList: Album[];
-  searchTitle: string;
-  searchGenre: number;
-  searchArtist: number;
+  albumList: Album[]; // Represents list + any search values
+  wholeList: Album[]; // Represents entire list of albums without search features
+  searchTitle: string; // Represents Title to search by
+  searchGenre: number; // Represents Genre to search by
+  searchArtist: number; // Represents Artist to search by
 
 
   constructor(private albumServ: AlbumServiceService) {
     this.albumList = this.albumServ.getAlbums();
+    this.wholeList = this.albumList;
     this.searchTitle = '';
    }
 
   ngOnInit(): void {
     this.albumList = this.albumServ.getAlbums();
-
+    this.wholeList = this.albumList;
   }
 
   addToCart(id: number): void {
@@ -36,7 +38,22 @@ export class AlbumListComponent implements OnInit {
   }
 
   search(): void {
+    this.albumList = this.wholeList.filter(this.hasSearchTitle.bind(this));
+    console.log(this.albumList);
     console.log(`Search title: ${this.searchTitle} - Search Genre: ${this.searchGenre} - Search Artist ${this.searchArtist}`);
+  }
+
+  // Used for Filter of Album List. If the title of the album matches the given
+  // regular expression based on the input title, then it'll be included.
+  hasSearchTitle(element: Album, index, array): boolean{
+    const searchBy = this.searchTitle;
+    const regex = '.*' + searchBy + '.*';
+    const regex2 = new RegExp(regex, 'i');
+    console.log(regex + ' and ' + element.name);
+    if (element.name.search(regex2) !== -1){
+      return true;
+    }
+    return false;
   }
 }
 
