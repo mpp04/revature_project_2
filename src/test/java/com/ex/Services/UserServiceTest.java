@@ -59,7 +59,6 @@ public class UserServiceTest extends TestCase {
     @Test
     public void testCreateAccount() {
         if (userService.getByUsername("NavPan").getEmail() == "navpanchhi@gmail.com"){
-            //userService.deleteUserById(userService.getUserIdByUsername("NavPan"));
             assertEquals("It works", userService.createAccount(
                     "navpanchhi@gmail.com",
                     "NavPan",
@@ -67,20 +66,8 @@ public class UserServiceTest extends TestCase {
                     "Navjot",
                     "Panchhi"
             ).getEmail(), "navpanchhi@gmail.com");
-            //userService.deleteUserById(userService.getUserIdByUsername("NavPan"));
         }
     }
 
-/*    @Test
-    public void testDeleteUserById() {
-        assertEquals("It works", userService.deleteUserById(userService.getUserIdByUsername("NavPan")), 0);
-        userService.createAccount(
-                "navpanchhi@gmail.com",
-                "NavPan",
-                "Navjot12345",
-                "Navjot",
-                "Panchhi"
-        );
-    }*/
 
 }

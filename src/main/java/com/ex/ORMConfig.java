@@ -1,4 +1,4 @@
-package com.ex.Services;
+package com.ex;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
@@ -50,7 +50,7 @@ public class ORMConfig {
         return sfBean;
     }
 
-    @Bean
+    //@Bean
     HibernateTransactionManager transactionManager(SessionFactory sf) {
         HibernateTransactionManager manager = new HibernateTransactionManager();
         manager.setSessionFactory(sf);

@@ -29,9 +29,7 @@ public class UserService implements UserDao{
      */
     @Override
     public Users login(String Username, String Password) {
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
+            Session session = sessionFactory.openSession();
             Criteria cr = session.createCriteria(Users.class);
             Criterion usernameCr = Restrictions.eq("Username", Username);
             Criterion passwordCr = Restrictions.eq("Password", Password);
@@ -39,18 +37,6 @@ public class UserService implements UserDao{
             cr.add(andExp);
             Users loggedInUser = (Users) cr.uniqueResult();
             return loggedInUser;
-
-        } catch (HibernateException hex) {
-            hex.printStackTrace();
-            if(session != null && session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
-        }finally {
-            if(session != null) {
-                session.close();
-            }
-        }
-        return null;
     }
 
     /**
@@ -236,31 +222,5 @@ public class UserService implements UserDao{
         }
         return null;
     }
-
-/*    @Override
-    public int deleteUserById(int User_Id) {
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
-            session.beginTransaction();
-            Users foundUser = (Users) session.get(Users.class, User_Id);
-            if(foundUser!=null){
-                session.delete(foundUser);
-                session.getTransaction().commit();
-                return 0;
-            }
-
-        } catch (HibernateException hex) {
-            hex.printStackTrace();
-            if(session != null && session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
-        }finally {
-            if(session != null) {
-                session.close();
-            }
-        }
-        return 1;
-    }*/
 
 }

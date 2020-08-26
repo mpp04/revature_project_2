@@ -27,6 +27,12 @@ public class ArtistServiceTest extends TestCase {
         artistService = new ArtistService(sessionFactory);
     }
 
+
+    @Test
+    public void testGetAllArtists(){
+        assertEquals("It works",artistService.getAllArtists().get(0).getArtist_Name(),"David Bowie");
+    }
+
     @Test
     public void testGetArtistIdByArtist() {
         assertEquals("It works", artistService.getArtistIdByArtist("David Bowie"), 1);
@@ -37,8 +43,4 @@ public class ArtistServiceTest extends TestCase {
         assertEquals("It works", artistService.getArtistById(2), "Elvis Pretzel");
     }
 
-    @Test
-    public void testGetArtistYearById() {
-        assertEquals("It works", artistService.getArtistYearById(3), artistService.getArtistYearById(3));
-    }
 }

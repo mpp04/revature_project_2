@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
@@ -18,5 +17,33 @@
 
     <!--  turn on transactionals-->
     <tx:annotation-driven/>
-    <mvc:annotation-driven/>
+
+    <!--Beans List-->
+    <bean name = "albums" class="com.ex.Frames.Albums"/>
+    <bean name = "albumService" class="com.ex.Services.AlbumService">
+        <constructor-arg name = "AlbumService" ref ="sessionFactoryBean"  />
+    </bean>
+
+    <bean name = "users" class ="com.ex.Frames.Users"/>
+    <bean name ="userService" class="com.ex.Services.UserService">
+        <constructor-arg name = "UserService" ref = "users"/>
+    </bean>
+
+    <bean name = "artists" class ="com.ex.Frames.Artists"/>
+    <bean name ="artistService" class="com.ex.Services.ArtistService">
+        <constructor-arg name = "ArtistService" ref = "artists"/> <!--Change the ref for all service beans-->
+    </bean>
+
+    <bean name = "genres" class ="com.ex.Frames.Genres"/>
+    <bean name ="genreService" class="com.ex.Services.GenreService">
+        <constructor-arg name = "GenreService" ref = "genres"/>
+    </bean>
+
+
+    <bean name = "java" class="com.ex.Java">
+        <constructor-arg name = "Java" ref ="albumService"/>
+    </bean>
+
+    <bean name = "sessionFactoryBean" class = "com.ex.ORMConfig"/>
+    <bean name = "transactionManager" class = "com.ex.ORMConfig"/>
 </beans>

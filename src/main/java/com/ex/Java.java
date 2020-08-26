@@ -1,10 +1,9 @@
-package com.ex.Services;
+package com.ex;
 
 import com.ex.Frames.Albums;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ex.Services.AlbumService;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
