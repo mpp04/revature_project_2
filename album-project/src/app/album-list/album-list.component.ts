@@ -32,6 +32,9 @@ export class AlbumListComponent implements OnInit {
     const albumIndex = this.albumList.findIndex(indexOfId); // Perform the search
     const chosenAlbum = this.albumList[albumIndex];
     console.log(`${chosenAlbum.name} added to cart`);
+
+    console.log(`Trying to add ${chosenAlbum.name} to cart...`);
+
     this.toCart.emit(chosenAlbum);
   }
 
@@ -39,3 +42,7 @@ export class AlbumListComponent implements OnInit {
     console.log(`Search title: ${this.searchTitle} - Search Genre: ${this.searchGenre} - Search Artist ${this.searchArtist}`);
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15fdd7b55e1891da5f8bc9f9d9db1d2c10e0acef

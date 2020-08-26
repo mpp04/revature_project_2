@@ -1,0 +1,22 @@
+th { 
+    width: 25%;
+}
+
+td { 
+    width: 25%;
+}
+
+tr {
+    width: 80%;
+}
+
+table {
+    margin-right: 3em;
+    margin-left: 3em;
+    width: 80%;
+    text-align: center;
+}
+
+.card {
+    text-align: center;
+}
