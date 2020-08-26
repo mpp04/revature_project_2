@@ -1,4 +1,4 @@
-package com.ex.Controllers;
+/*package com.ex.Controllers;
 
 
 import com.ex.Frames.Genres;
@@ -16,4 +16,4 @@ public class GenreCtrl {
         return genreService.getAllGenres();
     }
 
-}
+}*/

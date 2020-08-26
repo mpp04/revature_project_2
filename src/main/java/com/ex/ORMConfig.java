@@ -12,11 +12,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
 @Configuration
 @EnableTransactionManagement
 public class ORMConfig {
-    @Value("${connection.driver_class")
+    @Value("${connection.driver_class}")
     private String driverClassName;
 
     @Value("${connection.url}")
@@ -50,25 +49,21 @@ public class ORMConfig {
         return sfBean;
     }
 
-    //@Bean
+    @Bean
     HibernateTransactionManager transactionManager(SessionFactory sf) {
         HibernateTransactionManager manager = new HibernateTransactionManager();
         manager.setSessionFactory(sf);
         return manager;
     }
 
-
-
-    private Properties getSfProps(){
+    private Properties getSfProps() {
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", dbDialect);
-        props.setProperty("hibernate.show_sql","true");
-        props.setProperty("hibernate.format_sql","true");
-        props.setProperty("hibernate.hbm2ddl.auto","update");
+        props.setProperty("hibernate.show_sql", "true");
+        props.setProperty("hibernate.format_sql", "true");
+        props.setProperty("hibernate.hbm2ddl.auto", "create");
+
         return props;
     }
-
-    //AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
-
-    //ac.close();
 }
+

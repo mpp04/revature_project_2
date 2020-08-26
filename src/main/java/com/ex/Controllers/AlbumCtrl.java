@@ -1,3 +1,4 @@
+/*
 package com.ex.Controllers;
 
 import com.ex.Frames.Albums;
@@ -21,3 +22,4 @@ public class AlbumCtrl {
     }
 
 }
+*/

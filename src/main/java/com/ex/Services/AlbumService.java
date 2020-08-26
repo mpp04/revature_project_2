@@ -5,21 +5,25 @@ import com.ex.Frames.Albums;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
+@Repository
+@Transactional
 public class AlbumService implements AlbumDao {
     private SessionFactory sessionFactory;
 
+    @Autowired
     public AlbumService(SessionFactory sf) {
         this.sessionFactory = sf;
     }
 
     @Override
+    @Transactional
     public List<Albums> getAllAlbums() {
         Session session = sessionFactory.openSession();
         String hql = "FROM Albums";
@@ -29,9 +33,9 @@ public class AlbumService implements AlbumDao {
     }
 
     @Override
+    @Transactional
     public List<Albums> getAlbumsByGenre(int Genre_Id) {
         Session session = null;
-        //List<Albums> foundAlbums = new ArrayList<>();
         try{
             session = sessionFactory.openSession();
             String hql = "from Albums where genre_id = :g";
@@ -50,15 +54,13 @@ public class AlbumService implements AlbumDao {
                 session.close();
             }
         }
-        //System.out.println(foundAlbums);
-        //return foundAlbums;
         return null;
     }
 
     @Override
+    @Transactional
     public List<Albums> getAlbumsByArtist(int Artist_Id) {
         Session session = null;
-        //List<Albums> foundAlbums = new ArrayList<>();
         try{
             session = sessionFactory.openSession();
             String hql = "from Albums where artist_id = :g";
@@ -83,6 +85,7 @@ public class AlbumService implements AlbumDao {
     }
 
     @Override
+    @Transactional
     public List<Albums> getAlbumsByTitle(String Album_Title) {
         Session session = null;
         //List<Albums> foundAlbums = new ArrayList<>();
@@ -110,6 +113,7 @@ public class AlbumService implements AlbumDao {
     }
 
     @Override
+    @Transactional
     public Albums getAlbumById(int Album_Id) {
         Session session = null;
         Albums foundAlbums = null;
@@ -136,6 +140,7 @@ public class AlbumService implements AlbumDao {
     }
 
     @Override
+    @Transactional
     public String getAlbumDescription(int Album_Id) {
         Session session = null;
         Albums foundDescription = null;
@@ -157,6 +162,7 @@ public class AlbumService implements AlbumDao {
     }
 
     @Override
+    @Transactional
     public float getPriceByAlbumId(int Album_Id){
         Session session = null;
         Albums foundPrice = null;
