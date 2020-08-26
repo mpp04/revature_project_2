@@ -2,6 +2,10 @@
 <h1> About Us </h1>
 <p> The FF Team behind Album 1 </p>
  
+<!-- The div below selects the top 4 results from the http request made in the 
+about-us.component.ts file; then generates 1 about-us image card; and displays them in columns
+(see the about-us.css) -->
+
   <div class='cardholder' *ngFor="let image of data; index as i;"> 
     <div *ngIf="i<4">
 
@@ -18,13 +22,4 @@
    
  
 
-    <!--
-
-       
-<div *ngFor="let image of data" style="text-align:center">
-  <h3>
-     {{ image.title }}
-   </h3>
-   <img width="200" alt="thumbnail" [src]="image.thumbnailUrl">
-  </div> 
-    -->
+     
