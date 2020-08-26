@@ -1,4 +1,25 @@
-<p>user-cart works!</p>
-<div *ngFor="let item of cart">
-    <p>You have: {{item.name}}</p>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Current Cart Price: {{getTotalPrice() | currency}}</h5>
+        <button type="button" class="btn btn-outline-primary" (click)="purchase()">Purchase Albums</button>
+    </div>
 </div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Artist</th>
+        <th scope="col">Price</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart">
+        <td>{{item.name}}</td>
+        <td>{{item.artist}}</td>
+        <td>{{item.price | currency}}</td>
+        <td><button type="button" class="btn btn-outline-danger" (click)="deleteFromCart(item.id)">X</button></td>
+      </tr>
+    </tbody>
+</table>
+
