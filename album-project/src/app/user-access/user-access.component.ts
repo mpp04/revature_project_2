@@ -13,12 +13,12 @@ export class UserAccessComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signUp(): void{
-    this.userAccess.emit(true);
+  signUp(status: boolean): void{
+    this.userAccess.emit(status);
   }
 
-  login(): void{
-    this.userAccess.emit(true);
+  login(status: boolean): void{
+    this.userAccess.emit(status);
   }
 
 }
