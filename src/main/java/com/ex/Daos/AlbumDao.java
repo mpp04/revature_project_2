@@ -2,6 +2,7 @@ package com.ex.Daos;
 
 import java.util.List;
 import com.ex.Frames.*;
+import org.springframework.stereotype.Service;
 
 
 public interface AlbumDao {

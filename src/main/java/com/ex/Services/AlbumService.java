@@ -12,22 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-@Service
-@Transactional
 public class AlbumService implements AlbumDao {
+    private SessionFactory sessionFactory;
 
-
-    //private AlbumDao albumDao;
-
-    SessionFactory sessionFactory;
-    @Autowired
     public AlbumService(SessionFactory sf) {
         this.sessionFactory = sf;
     }
 
-
     @Override
-    @Transactional(isolation = Isolation.READ_COMMITTED, readOnly = true)
     public List<Albums> getAllAlbums() {
         Session session = sessionFactory.openSession();
         String hql = "FROM Albums";
