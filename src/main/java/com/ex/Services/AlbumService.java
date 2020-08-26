@@ -1,56 +1,30 @@
 package com.ex.Services;
 
-import com.ex.Frames.AlbumDao;
+import com.ex.Daos.AlbumDao;
 import com.ex.Frames.Albums;
-import org.hibernate.SessionFactory;
-
 import org.hibernate.*;
-
-import java.lang.reflect.Field;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.hibernate.criterion.*;
-import org.hibernate.engine.internal.StatefulPersistenceContext;
-import org.hibernate.engine.spi.PersistenceContext;
-import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 
 public class AlbumService implements AlbumDao {
-
-
     private SessionFactory sessionFactory;
 
-    public AlbumService(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public AlbumService(SessionFactory sf) {
+        this.sessionFactory = sf;
     }
-
 
     @Override
     public List<Albums> getAllAlbums() {
-        Session session = null;
-        List<Albums> foundAlbums = new ArrayList<>();
-        try {
-            session = sessionFactory.openSession();
-            String hql = "FROM Albums";
-            Query query = session.createQuery(hql);
-            for(Object o : query.list()){
-                foundAlbums.add((Albums) o);
-            }
-        } catch (HibernateException hex) {
-            hex.printStackTrace();
-            if(session != null && session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
-        }finally {
-            if(session != null) {
-                session.close();
-            }
-        }
+        Session session = sessionFactory.openSession();
+        String hql = "FROM Albums";
+        Query query = session.createQuery(hql);
+        List<Albums> foundAlbums = query.list();
         return foundAlbums;
     }
 

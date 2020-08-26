@@ -1,22 +1,10 @@
 package com.ex.Services;
 
+import com.ex.Daos.ShopcartDao;
 import com.ex.Frames.*;
 import org.hibernate.SessionFactory;
 
-import org.hibernate.SessionFactory;
-
 import org.hibernate.*;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.hibernate.criterion.*;
-import org.hibernate.engine.internal.StatefulPersistenceContext;
-import org.hibernate.engine.spi.PersistenceContext;
-import org.hibernate.engine.spi.SessionImplementor;
 
 public class ShopcartService implements ShopcartDao {
 
