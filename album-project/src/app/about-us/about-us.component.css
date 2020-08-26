@@ -1,0 +1,9 @@
+.cardholder {
+    display:inline-block;
+    margin: 0.5em;  
+}
+
+
+.card:hover {
+    box-shadow: 0.5em 0.5em 0.25em grey;
+}
