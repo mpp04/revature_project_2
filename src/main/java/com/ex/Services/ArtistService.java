@@ -1,28 +1,15 @@
 package com.ex.Services;
 
-import com.ex.Frames.Albums;
-import com.ex.Frames.ArtistDao;
+import com.ex.Daos.ArtistDao;
 import com.ex.Frames.Artists;
 
 import java.sql.Timestamp;
 
-import com.ex.Frames.Genres;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.*;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.criterion.*;
-import org.hibernate.engine.internal.StatefulPersistenceContext;
-import org.hibernate.engine.spi.PersistenceContext;
-import org.hibernate.engine.spi.SessionImplementor;
-
-import java.util.List;
 
 public class ArtistService implements ArtistDao {
 

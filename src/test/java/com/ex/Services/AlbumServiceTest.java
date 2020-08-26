@@ -2,12 +2,9 @@ package com.ex.Services;
 
 import com.ex.HibernateUtil;
 import junit.framework.TestCase;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.ex.Frames.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -17,15 +14,26 @@ public class AlbumServiceTest extends TestCase {
 
     private static SessionFactory sessionFactory;
     private static AlbumService albumService;
+    //private static AnnotationConfigApplicationContext context;
+    //private static AlbumDao albumDao;
 
-
-    @BeforeClass
+   @BeforeClass
     public void setUp() throws Exception {
         HibernateUtil.connect();
+        sessionFactory =
         sessionFactory = HibernateUtil.getSessionFactory();
         albumService = new AlbumService(sessionFactory);
     }
 
+
+    //@BeforeClass
+    //public static void init() {
+        //context = new AnnotationConfigApplicationContext();
+        //context.scan("com.ex.Frames");
+        //context.refresh();
+        //albumService = (AlbumService) context.getBean("albumService");
+
+    //}
 
     @Test
     public void testGetAllAlbums() {
