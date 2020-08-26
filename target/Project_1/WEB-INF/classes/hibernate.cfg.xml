@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration> <!-- Configuration Abrstract class -->
+  <session-factory>
+    <!-- configure how the SessionFactory Connects to the DB and build sessions -->
+    <!-- datasource -->
+    <property name="hibernate.connection.username">NavPanchhi</property>
+    <property name="hibernate.connection.password">Navp1152</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com:5432/postgres</property>
+
+    <!--driver specific config-->
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+    <!-- make things pretty -->
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+
+    <!--<property name="hibernate.default_schema">Project2</property>-->
+    <!-- use hibernate to create our schema -->
+    <!-- Four values for hbm2ddl.auto
+      - create - drop then create at startup
+      - create-drop - create at startup and drop at shutdown
+      - update - only update schema diffs
+      - none - default, don't do it
+     -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- object mappings -->
+    <!-- <mapping file="honeypot.hbm.xml"/> -->
+    <mapping class="com.ex.Frames.Albums"/>
+    <mapping class="com.ex.Frames.Artists"/>
+    <mapping class="com.ex.Frames.CartContents"/>
+    <mapping class="com.ex.Frames.Genres"/>
+    <mapping class="com.ex.Frames.Shopcarts"/>
+    <mapping class="com.ex.Frames.Users"/>
+  </session-factory> <!-- SessionFactory Interface -->
+</hibernate-configuration>
+
+
+<!--
+        <!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.username">NavPanchhi</property>
+    <property name="hibernate.connection.password">Navp1152</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com:5432/postgres</property>
+
+
+
+    <property name="connection_pool_size">1</property>
+
+    &lt;!&ndash;<property name="hbm2ddl.auto">create</property>&ndash;&gt;
+
+    <property name="show_sql">true</property>
+
+
+
+    <mapping class="com.ex.com.ex.com.ex.Frames.Users"/>
+
+  </session-factory>
+</hibernate-configuration>
+-->

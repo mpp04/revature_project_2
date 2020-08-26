@@ -39,3 +39,4 @@ export class AlbumListComponent implements OnInit {
     console.log(`Search title: ${this.searchTitle} - Search Genre: ${this.searchGenre} - Search Artist ${this.searchArtist}`);
   }
 }
+
