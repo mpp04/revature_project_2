@@ -1,13 +1,18 @@
+
 package com.ex.Controllers;
 
 
 import com.ex.Frames.Genres;
 import com.ex.Services.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
+@Controller
+@RequestMapping("/genres")
 public class GenreCtrl {
 
     private final GenreService genreService;
@@ -17,9 +22,11 @@ public class GenreCtrl {
         this.genreService = genreService;
     }
 
-    @RequestMapping("/genres")
-    public List<Genres> getAllGenres(){
-        return genreService.getAllGenres();
-    }
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<String> getAllGenres() {
+        return new ResponseEntity(genreService.getAllGenres(), HttpStatus.OK);
 
+    }
 }
+

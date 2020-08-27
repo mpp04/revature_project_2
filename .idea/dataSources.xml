@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postgres@nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com [2]" uuid="64f3b08a-04dd-4301-980a-b05cbee56420">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com:5432/postgres</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="jdbc:postgresql://hibernate.connection.url= jdbc:postgresql://nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com:5432/postgres:5432/postgres" uuid="4e300042-b699-4ca3-8976-a9570d303adc">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://hibernate.connection.url= jdbc:postgresql://nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com:5432/postgres:5432/postgres</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com" uuid="516d989f-db8f-4683-a34c-d447841ce25e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://nav-panchhi-revature.cc5gjfvhggft.us-east-2.rds.amazonaws.com:5432/postgres</jdbc-url>
     </data-source>
   </component>
 </project>
