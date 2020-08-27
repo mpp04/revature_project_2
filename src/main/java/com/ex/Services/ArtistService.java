@@ -10,18 +10,24 @@ import org.hibernate.SessionFactory;
 import org.hibernate.*;
 
 import org.hibernate.criterion.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
 public class ArtistService implements ArtistDao {
 
 
     private SessionFactory sessionFactory;
-
+    @Autowired
     public ArtistService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
 
     @Override
+    @Transactional
     public List<Artists> getAllArtists() {
         Session session = sessionFactory.openSession();
         String hql = "FROM Artists";
@@ -31,6 +37,7 @@ public class ArtistService implements ArtistDao {
     }
 
     @Override
+    @Transactional
     public int getArtistIdByArtist(String Artist_Name) {
         Artists foundArtist;
         Session session = sessionFactory.openSession();
@@ -43,6 +50,7 @@ public class ArtistService implements ArtistDao {
     }
 
     @Override
+    @Transactional
     public String getArtistById(int Artist_Id) {
         Artists foundArtist;
         Session session = sessionFactory.openSession();

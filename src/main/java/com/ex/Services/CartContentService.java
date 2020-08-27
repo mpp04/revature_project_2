@@ -3,6 +3,8 @@ package com.ex.Services;
 import com.ex.Daos.CartContentDao;
 import com.ex.Frames.*;
 import org.hibernate.*;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

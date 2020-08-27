@@ -11,18 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.criterion.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
 public class GenreService implements GenreDao {
 
 
     private SessionFactory sessionFactory;
-
+    @Autowired
     public GenreService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
 
     @Override
+    @Transactional
     public List<Genres> getAllGenres() {
         Session session = null;
         List<Genres> foundGenres = new ArrayList<>();
@@ -47,6 +53,7 @@ public class GenreService implements GenreDao {
     }
 
     @Override
+    @Transactional
     public int getGenreIdByGenre(String Genre_Name) {
         Session session = null;
         Genres foundGenres = null;
@@ -73,6 +80,7 @@ public class GenreService implements GenreDao {
     }
 
     @Override
+    @Transactional
     public String getGenreById(int Genre_Id) {
         Session session = null;
         Genres foundGenres = null;

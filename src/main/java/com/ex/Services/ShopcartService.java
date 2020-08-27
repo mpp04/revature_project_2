@@ -5,6 +5,9 @@ import com.ex.Frames.*;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.*;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 
 public class ShopcartService implements ShopcartDao {
 
@@ -14,31 +17,6 @@ public class ShopcartService implements ShopcartDao {
     public ShopcartService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
-/*
-
-    @Override
-    public int getShopcartIdByUserId(int User_Id) {
-        Session session = null;
-        Shopcarts foundShopcart = null;
-        try{
-            session = sessionFactory.openSession();
-            foundShopcart = (Shopcarts) session.get(Shopcarts.class, User_Id);
-        } catch (HibernateException hex) {
-            hex.printStackTrace();
-            if(session != null && session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
-        }finally {
-            if(session != null) {
-                session.close();
-            }
-        }
-        System.out.println(foundShopcart);
-        return foundShopcart.getShopcart_Id();
-    }
-*/
-
 
     @Override
     public int getUserIdByShopcartId(int Shopcart_Id) {
