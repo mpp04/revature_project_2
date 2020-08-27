@@ -11,8 +11,12 @@ import java.util.List;
 
 @Controller
 public class ArtistCtrl {
+    private final ArtistService artistService;
+
     @Autowired
-    private ArtistService artistService;
+    public ArtistCtrl(ArtistService artistService) {
+        this.artistService = artistService;
+    }
     @RequestMapping("/artists")
     public List<Artists> getAllArtists(){
         return artistService.getAllArtists();

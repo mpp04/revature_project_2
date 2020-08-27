@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -19,7 +18,7 @@ public class Java {
     }
 
     public static void main(String[] args) {
-        AbstractApplicationContext ac = new ClassPathXmlApplicationContext("WEB-INF/application-context.xml");
+        AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
         Java m = ac.getBean("java", Java.class);
         List<Albums> foundAlbums= m.albumService.getAllAlbums();
         System.out.println(foundAlbums.get(0).getAlbum_Id());

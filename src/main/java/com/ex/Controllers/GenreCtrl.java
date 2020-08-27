@@ -1,4 +1,4 @@
-/*package com.ex.Controllers;
+package com.ex.Controllers;
 
 
 import com.ex.Frames.Genres;
@@ -9,11 +9,17 @@ import java.util.List;
 
 @RestController
 public class GenreCtrl {
+
+    private final GenreService genreService;
+
     @Autowired
-    private GenreService genreService;
+    public GenreCtrl(GenreService genreService) {
+        this.genreService = genreService;
+    }
+
     @RequestMapping("/genres")
     public List<Genres> getAllGenres(){
         return genreService.getAllGenres();
     }
 
-}*/
+}
