@@ -28,12 +28,12 @@
 
 <div class='album-holder' *ngFor="let album of albumList">
     <!-- <a href="#"> -->
-    <div class="card album" style="width: 18rem;">
+    <div class="card album" style="width: 18rem;" (click)="(showExtra = !showExtra)">
         <img [src]="album.art" class="card-img-top album-art" alt="Album Cover Art">
         <div class="card-body">
             <h5 class="card-title">{{ album.name }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">By {{ album.artist }}</h6>
-            <div class="bottom">
+            <div class="bottom" *ngIf="showExtra">
               <p class="additional">{{album.genre}} • {{album.price | currency}}</p>
               <button (click)="addToCart(album.id)" class="btn btn-primary">Add to Cart</button>
             </div>

@@ -16,12 +16,14 @@ export class AlbumListComponent implements OnInit {
   searchTitle: string; // Represents Title to search by
   searchGenre: number; // Represents Genre to search by
   searchArtist: number; // Represents Artist to search by
+  showExtra: boolean; // Show Extra information
 
 
   constructor(private albumServ: AlbumServiceService) {
     this.albumList = this.albumServ.getAlbums();
     this.wholeList = this.albumList;
     this.searchTitle = '';
+    this.showExtra = false;
    }
 
   ngOnInit(): void {
