@@ -16,11 +16,11 @@ public class Albums {
     private int Album_Id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="artists", referencedColumnName = "artist_id",columnDefinition = "INT")
+    @JoinColumn(name="artist_id", referencedColumnName = "artist_id",columnDefinition = "INT")
     private Artists Artist_Id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="genres", referencedColumnName = "genre_id",columnDefinition = "INT")
+    @JoinColumn(name="genre_id", referencedColumnName = "genre_id",columnDefinition = "INT")
     private com.ex.web.models.Genres Genre_Id;
 
     @Column(name="album_title")
